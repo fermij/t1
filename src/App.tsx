@@ -1,24 +1,36 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Counter from './Containers/t1';
+import MyForm from './Containers/t2';
+import TodoContainer from './Containers/TodoContainer';
+import TestHook from './Containers/t3';
 
 function App() {
+  const dataTodo = [
+    { id: 1, text: "Wash dishes", done: true },
+    { id: 2, text: "Do laundry", done: false },
+    { id: 3, text: "Take shower", done: false }
+  ];
+
+  const me = {
+    name: "Fermi",
+    job: "Developer",
+    startYear: 2022,
+    todo: dataTodo
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Todo List</h1>
+      <TodoContainer author={me} />
+      <hr />
+      <Counter />
+      <hr />
+      <MyForm />
+      <hr />
+      <TestHook />
+      <hr />
     </div>
   );
 }
